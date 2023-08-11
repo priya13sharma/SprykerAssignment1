@@ -1,0 +1,26 @@
+{% if FeaturedProducts is not empty %}
+    <table class="featured-products-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Image</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in FeaturedProducts %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td>
+                        <img src="{{ product.image }}" alt="{{ product.name }}" width="100">
+                    </td>
+                    <td>{{ product.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No featured products available.</p>
+{% endif %}
